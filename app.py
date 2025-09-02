@@ -33,7 +33,6 @@ def create_app(test_config=None):
         app.config.update(test_config)
 
     app.register_blueprint(bp)
-
     return app
 
 if __name__=='__main__':
