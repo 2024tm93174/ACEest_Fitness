@@ -1,7 +1,11 @@
 {
-  "python.testing.pytestEnabled": true,
-  "python.testing.unittestEnabled": false,
-  "python.testing.pytestArgs": [
-    "tests"
-  ]
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],"python.analysis.extraPaths": [
+    "./ACEest_Fitness"
+  ],
+    "python.testing.autoTestDiscoverOnSaveEnabled": true
 }

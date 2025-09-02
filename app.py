@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, request
 from routes import bp
+from models import db
 
 app = Flask(__name__)
 
@@ -23,7 +24,7 @@ def login():
         user = request.args.get('nm')
         return redirect(url_for('success', name=user))
         
-def create_app(test_config=None):
+""" def create_app(test_config=None):
     app = Flask(__name__)
     app.config.from_mapping(
         SECRET_KEY="dev",
@@ -37,4 +38,34 @@ def create_app(test_config=None):
 
 if __name__=='__main__':
     app = create_app()
+    app.run(debug=True) """
+
+def create_app(test_config=None):
+    app = Flask(__name__)
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"  # in-memory DB for testing
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    db.init_app(app)
+
+    with app.app_context():
+        db.create_all()  # create tables at startup
+
+    @app.route("/ping")
+    def ping():
+        return {"message": "pong"}
+
+    app.config.from_mapping(
+        SECRET_KEY="dev",
+    )
+
+    if test_config:
+        app.config.update(test_config)
+
+    app.register_blueprint(bp)
+    return app
+
+if __name__=='__main__':
+    app = create_app()
     app.run(debug=True)
+
+    
