@@ -1,6 +1,5 @@
 from flask import Flask, redirect, url_for, request
 from routes import bp
-from models import db
 
 app = Flask(__name__)
 
@@ -45,11 +44,7 @@ def create_app(test_config=None):
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"  # in-memory DB for testing
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    db.init_app(app)
-
-    with app.app_context():
-        db.create_all()  # create tables at startup
-
+  
     @app.route("/ping")
     def ping():
         return {"message": "pong"}
