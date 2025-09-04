@@ -38,7 +38,6 @@ URL accessible inside VM: http://localhost:5000
 URL accessible from Windows host depends on network mode:
 NAT + port forwarding: http://127.0.0.1:5000
 Bridged Adapter: http://10.0.2.15:5000
-http://192.168.18.13:5000/
 
 CI/CD Pipeline Steps:
 Pulls the repository code

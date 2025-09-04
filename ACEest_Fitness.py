@@ -5,7 +5,10 @@ class FitnessTrackerApp:
     def __init__(self, master):
         self.master = master
         master.title("ACEestFitness and Gym")
-
+        x_position = 200
+        y_position = 300
+        master.geometry(f"300x200+{x_position}+{y_position}")
+        
         self.workouts = []
 
         # Labels and Entries for adding workouts
