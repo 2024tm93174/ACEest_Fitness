@@ -21,7 +21,7 @@ def run_tkinter_app():
 @app.route('/acestfitness')
 def acestfitness():
     threading.Thread(target=run_tkinter_app).start()
-    return "Fitness Tracker app launched!"
+    return  "Fitness Tracker app launched!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
