@@ -15,6 +15,16 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python app/run.py
 
+pytest
+tests/
+  ├── conftest.py
+  ├── models.py
+  ├── test_auth.py  
+  ├── test_models.py
+  ├── test_routes.py   
+  
+docker run --rm aceest_fitness_app pytest
+
 Docker:
 OS: Ubuntu 22.04 (inside VirtualBox)
 Image Name: aceest_fitness_app
@@ -29,12 +39,10 @@ URL accessible from Windows host depends on network mode:
 NAT + port forwarding: http://127.0.0.1:5000
 Bridged Adapter: http://10.0.2.15:5000
 
-pytest
-tests/
-  ├── conftest.py
-  ├── models.py
-  ├── test_auth.py  
-  ├── test_models.py
-  ├── test_routes.py   
-  
-docker run --rm aceest_fitness_app pytest
+CI/CD Pipeline Steps:
+Pulls the repository code
+Installs Python 3.11
+Installs all packages from requirements.txt
+Executes pytest on the tests/ folder
+Build Docker Image – Ensures the Dockerfile is valid and the Flask app can run in a container
+
