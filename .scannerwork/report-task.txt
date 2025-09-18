@@ -1,0 +1,6 @@
+projectKey=aceestfitness_project
+serverUrl=http://localhost:9000
+serverVersion=25.9.0.112764
+dashboardUrl=http://localhost:9000/dashboard?id=aceestfitness_project
+ceTaskId=e4d826d3-fc6d-451b-a3e5-0e7e3ed8639e
+ceTaskUrl=http://localhost:9000/api/ce/task?id=e4d826d3-fc6d-451b-a3e5-0e7e3ed8639e
